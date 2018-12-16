@@ -1,0 +1,36 @@
+<ion-view view-title="Playlists">
+  <ion-content>
+
+
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").toggle();
+    });
+});
+</script>
+
+<button>Toggle between hiding and showing the paragraphs</button>
+
+<p>This is a paragraph with little content.</p>
+<p>This is another small paragraph.</p>
+
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+        {{playlist.title}}
+      </ion-item>
+    </ion-list>
+    <a href="unhide('toon1');">Voorbeeld 1</a><br />
+<div id="toon1" class="hidden">Dit is een stukje tekst dat al dan niet getoond wordt.</div><br />
+<a href="javascript:unhide('toon2');">Voorbeeld 2</a><br />
+<div id="toon2" class="hidden">Dit is nog een stukje tekst dat al dan niet getoond wordt.</div>
+<script type="text/javascript">
+	$scope.unhide=function(divID) {
+    var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+  }
+</script>
+  </ion-content>
+</ion-view>
